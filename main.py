@@ -1,15 +1,31 @@
-from fastapi import FastAPI
-from fastapi.responses import JSONResponse
-import json
-
-app = FastAPI()
-
-@app.get("/")
-def read_root():
-    return {"mensaje": "Servidor funcionando correctamente"}
-
-@app.get("/openapi.json")
-def openapi():
-    with open("openapi.json", "r") as file:
-        contenido = json.load(file)
-    return JSONResponse(content=contenido)
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Memoria GPT",
+    "version": "1.0.0",
+    "description": "Conecta tu GPT personalizado con Google Sheets como memoria externa"
+  },
+  "servers": [
+    {
+      "url": "https://memoria-gpt-v2.onrender.com"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Inicio",
+        "operationId": "inicio_get",
+        "responses": {
+          "200": {
+            "description": "Respuesta exitosa",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
