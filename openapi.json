@@ -1,7 +1,57 @@
-memoria-gpt-v2/
-├── main.py
-├── openapi.json ⬅️ ESTE
-├── requirements.txt
-├── credenciales.json
-├── pyproject.toml
-└── .replit
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Memoria GPT",
+    "version": "1.0.0",
+    "description": "Conecta tu GPT personalizado con Google Sheets como memoria externa"
+  },
+  "servers": [
+    {
+      "url": "https://memoria-gpt-v2.onrender.com"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Inicio",
+        "operationId": "inicio_get",
+        "responses": {
+          "200": {
+            "description": "Respuesta exitosa",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ver_hojas": {
+      "get": {
+        "summary": "Ver hojas",
+        "operationId": "verHojas",
+        "responses": {
+          "200": {
+            "description": "Lista de hojas",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "hojas_disponibles": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
