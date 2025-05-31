@@ -1,9 +1,8 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "Memoria GPT",
-    "version": "1.0.0",
-    "description": "Conecta tu GPT personalizado con Google Sheets como memoria externa"
+    "title": "FastAPI",
+    "version": "0.1.0"
   },
   "servers": [
     {
@@ -13,11 +12,11 @@
   "paths": {
     "/": {
       "get": {
-        "summary": "Inicio",
-        "operationId": "inicio_get",
+        "summary": "Read Root",
+        "operationId": "read_root_get",
         "responses": {
           "200": {
-            "description": "Respuesta exitosa",
+            "description": "Successful Response",
             "content": {
               "application/json": {
                 "schema": {}
@@ -27,26 +26,16 @@
         }
       }
     },
-    "/ver_hojas": {
+    "/openapi.json": {
       "get": {
-        "summary": "Ver hojas",
-        "operationId": "verHojas",
+        "summary": "Openapi",
+        "operationId": "openapi_openapi_json_get",
         "responses": {
           "200": {
-            "description": "Lista de hojas",
+            "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "hojas_disponibles": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                }
+                "schema": {}
               }
             }
           }
